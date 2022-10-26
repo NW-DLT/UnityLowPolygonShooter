@@ -349,6 +349,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Ground.cs"
 "Assets/MyAssets/Scripts/Orb.cs"
+"Assets/MyAssets/Scripts/WeaponPickUp.cs"
 "Assets/OrbSpawner.cs"
 "Assets/PBS Barrels and Crates/Scripts/CrateGridBuilder.cs"
 "Assets/PBS Barrels and Crates/Scripts/DestroyBelowY.cs"
