@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 785163829360335265}
   - component: {fileID: 785163829360335273}
   - component: {fileID: 785163829360335272}
+  - component: {fileID: 1435558350745583882}
   m_Layer: 0
   m_Name: AK 47
   m_TagString: Weapon
@@ -320,12 +321,34 @@ MonoBehaviour:
   damage: 1
   fireRate: 8
   range: 15
-  bullets_count: 10
+  max_bullets: 20
+  bullets_count: 20
+  bullets_count_all: 80
   muzzleFlash: {fileID: 785163828695400313}
   bulletSpawn: {fileID: 0}
   shotSFX: {fileID: 8300000, guid: 6c1cc3cbbeac5894182539ebfd5c1726, type: 3}
   _audioSource: {fileID: 785163829360335273}
   hitEffect: {fileID: 0}
+--- !u!95 &1435558350745583882
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442513324788213118}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1fcc4c03844eef48bcce6394353ce1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &785163830184958315
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponPickUp : MonoBehaviour
@@ -12,15 +13,26 @@ public class WeaponPickUp : MonoBehaviour
 
     public static Action<GameObject> HandWeaponUse;
     public static Action<Camera> WeaponWasPickUp;
+    public static Action<GameObject> HandWeaponReload;
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E)) PickUp();
         if(Input.GetKeyDown(KeyCode.Q)) Drop();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if(currentWeapon!= null)
+            {
+                HandWeaponReload(currentWeapon);
+            }
+        }
         //if(Input.GetKeyDown(KeyCode.Mouse0) && currentWeapon != null) HandWeaponUse(currentWeapon);
         if (Input.GetButton("Fire1"))
         {
-            HandWeaponUse(currentWeapon);
+            if(currentWeapon!= null)
+            {
+                HandWeaponUse(currentWeapon);
+            }
         }
     }
 
@@ -51,9 +63,10 @@ public class WeaponPickUp : MonoBehaviour
         {
             currentWeapon.transform.parent = null;
             currentWeapon.GetComponent<Rigidbody>().isKinematic = false;
-            currentWeapon.GetComponent<Rigidbody>().AddForce(1, 1, 1.0f, ForceMode.Impulse);
+            currentWeapon.GetComponent<Rigidbody>().AddForce(1, 1, camera.transform.rotation.y, ForceMode.Impulse);
             canPickUp = false;
             currentWeapon = null;
+            ScoreViewer.instance.dropWeapon();
         }
     }
 }

@@ -34,7 +34,6 @@ public class Orb : MonoBehaviour
     private void Start()
     {
         _orbSize = new Vector3(4, 4, 4);
-        Debug.Log(_orbSize);
     }
 
     void OrbWasHit(GameObject orb)
