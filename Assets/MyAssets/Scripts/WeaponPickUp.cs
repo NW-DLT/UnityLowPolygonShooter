@@ -53,6 +53,7 @@ public class WeaponPickUp : MonoBehaviour
                 currentWeapon.transform.localEulerAngles = new Vector3(5f, 180f, 0f);
                 canPickUp = true;
                 WeaponWasPickUp(camera);
+                //ScoreViewer.instance.updateWeaponBullets($"{currentWeapon.gameObject.bullets_count} / {hit.bullets_count_all}");
             }
         }
     }

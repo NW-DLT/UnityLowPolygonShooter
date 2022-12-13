@@ -18,6 +18,7 @@ public class WeaponShoot : MonoBehaviour
     public AudioClip shotSFX;
     public AudioSource _audioSource;
     public GameObject hitEffect;
+    public GameObject Magazine;
 
     private Camera _cam;
     private float nextFire = 0f;
@@ -39,15 +40,15 @@ public class WeaponShoot : MonoBehaviour
         this._cam = cam;
         ScoreViewer.instance.updateWeaponBullets($"{this.bullets_count} / {this.bullets_count_all}");
     }
-
     void Reload(GameObject gun)
     {
         if(gun == this.gameObject && this.bullets_count_all >= this.max_bullets) 
         {
-            animator.SetBool("reload", true);
+            animator.SetTrigger("trig_reload");
             this.bullets_count_all-=this.max_bullets;
             this.bullets_count = this.max_bullets;
             ScoreViewer.instance.updateWeaponBullets($"{this.bullets_count} / {this.bullets_count_all}");
+            Instantiate(Magazine,new Vector3(gun.transform.position.x, (float)gun.transform.position.y - (float)0.5, gun.transform.position.z), gun.transform.rotation);
             //animator.SetBool("reload", false);
         }
     }
